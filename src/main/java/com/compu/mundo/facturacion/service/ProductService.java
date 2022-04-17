@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    public List<Product> allProducts();
+    public List<Product> getAll();
 
     public Product findById(Long id);
 
@@ -14,5 +14,5 @@ public interface ProductService {
 
     public Product update(Product product);
 
-    public void deleteProduct(Long id);
+    public void delete(Long id);
 }

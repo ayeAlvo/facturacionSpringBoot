@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ClientService {
 
-    public List<Client> allClients();
+    public List<Client> getAll();
 
     public Client findById(Long id);
 
@@ -14,5 +14,5 @@ public interface ClientService {
 
     public Client update(Client client);
 
-    public void deleteClient(Long id);
+    public void delete(Long id);
 }

@@ -15,7 +15,7 @@ public class CompanyController {
 
     @GetMapping("/allCompanies")
     public List<Company> getAllCompanies(){
-        return companyService.allCompanies();
+        return companyService.getAll();
     }
 
     @GetMapping("/getCompany/{id}")
@@ -35,6 +35,6 @@ public class CompanyController {
 
     @DeleteMapping("/deleteCompany/{id}")
     public void deleteCompany(@PathVariable(value = "id") Long id){
-        companyService.deleteCompany(id);
+        companyService.delete(id);
     }
 }

@@ -15,7 +15,7 @@ public class ClientController {
 
     @GetMapping("/allClients")
     public List<Client> getAllClients(){
-        return clientService.allClients();
+        return clientService.getAll();
     }
 
     @GetMapping("/getClient/{id}")
@@ -35,7 +35,7 @@ public class ClientController {
 
     @DeleteMapping("/deleteClient/{id}")
     public void deleteClient(@PathVariable(value = "id") Long id){
-        clientService.deleteClient(id);
+        clientService.delete(id);
     }
 
 }

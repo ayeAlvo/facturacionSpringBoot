@@ -16,7 +16,7 @@ public class CompanyServiceImpl implements CompanyService{
     @Autowired
     CompanyRepository companyRepository;
 
-    public List<Company> allCompanies(){
+    public List<Company> getAll(){
         return companyRepository.findAll();
     }
 
@@ -35,7 +35,7 @@ public class CompanyServiceImpl implements CompanyService{
         return companyRepository.save(companyEdit);
     }
 
-    public void deleteCompany(Long id){
+    public void delete(Long id){
         Company company = companyRepository.findById(id).get();
         log.info("Se borro la empresa {}", company.getName());
         companyRepository.deleteById(id);

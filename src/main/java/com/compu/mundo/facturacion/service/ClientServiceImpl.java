@@ -17,7 +17,7 @@ public class ClientServiceImpl implements ClientService{
     @Autowired
     ClientRepository clientRepository;
 
-    public List<Client> allClients(){
+    public List<Client> getAll(){
         return clientRepository.findAll();
     }
 
@@ -38,7 +38,7 @@ public class ClientServiceImpl implements ClientService{
         return clientRepository.save(clientEdit);
     }
 
-    public void deleteClient(Long id){
+    public void delete(Long id){
         Client client = clientRepository.findById(id).get();
         log.info("Se borro el cliente {}", client.getName());
         clientRepository.deleteById(id);

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CompanyService {
 
-    public List<Company> allCompanies();
+    public List<Company> getAll();
 
     public Company findById(Long id);
 
@@ -16,6 +16,6 @@ public interface CompanyService {
 
     public Company update(Company company);
 
-    public void deleteCompany(Long id);
+    public void delete(Long id);
 
 }

@@ -1,6 +1,5 @@
 package com.compu.mundo.facturacion.service;
 
-import com.compu.mundo.facturacion.entity.Client;
 import com.compu.mundo.facturacion.entity.Product;
 import com.compu.mundo.facturacion.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,7 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     ProductRepository productRepository;
 
-    public List<Product> allProducts(){
+    public List<Product> getAll(){
         return productRepository.findAll();
     }
 
@@ -38,7 +37,7 @@ public class ProductServiceImpl implements ProductService{
         return productRepository.save(productEdit);
     }
 
-    public void deleteProduct(Long id){
+    public void delete(Long id){
         Product product = productRepository.findById(id).get();
         log.info("Se borro el producto {}", product.getName());
         productRepository.deleteById(id);
