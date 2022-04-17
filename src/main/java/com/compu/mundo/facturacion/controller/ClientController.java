@@ -3,9 +3,7 @@ package com.compu.mundo.facturacion.controller;
 import com.compu.mundo.facturacion.entity.Client;
 import com.compu.mundo.facturacion.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +22,20 @@ public class ClientController {
     public Client getClient(@PathVariable(value = "id") Long id){
         return clientService.findById(id);
     }
+
+    @PostMapping("/setClient")
+    public Client createClient(@RequestBody Client client){
+        return clientService.create(client);
+    }
+
+    @PutMapping("/editClient")
+    public Client editClient(@RequestBody Client client){
+        return clientService.update(client);
+    }
+
+    @DeleteMapping("/deleteClient/{id}")
+    public void deleteClient(@PathVariable(value = "id") Long id){
+        clientService.deleteClient(id);
+    }
+
 }
