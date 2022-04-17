@@ -1,5 +1,6 @@
 package com.compu.mundo.facturacion.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,9 +30,6 @@ public class Product {
 
     @Column(name = "DETAIL")
     private String detail;
-
-//    @Column(name = "CATEGORY_ID")
-//    private Long categoryId;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
