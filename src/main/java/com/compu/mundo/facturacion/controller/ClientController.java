@@ -23,7 +23,7 @@ public class ClientController {
         return clientService.findById(id);
     }
 
-    @PostMapping("/setClient")
+    @PostMapping("/newClient")
     public Client createClient(@RequestBody Client client){
         return clientService.create(client);
     }

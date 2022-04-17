@@ -20,4 +20,7 @@ public class Company {
 
     @Column(name = "NAME")
     String name;
+
+    @Column(name = "ITEM")
+    String item;
 }
