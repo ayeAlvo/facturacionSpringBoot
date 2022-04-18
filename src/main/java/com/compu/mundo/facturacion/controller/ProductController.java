@@ -1,5 +1,6 @@
 package com.compu.mundo.facturacion.controller;
 
+import com.compu.mundo.facturacion.dto.ProductDto;
 import com.compu.mundo.facturacion.entity.Product;
 import com.compu.mundo.facturacion.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class ProductController {
     @DeleteMapping("/deleteProduct/{id}")
     public void deleteProduct(@PathVariable(value = "id") Long id){
         productService.delete(id);
+    }
+
+    @PutMapping("sellProduct/{id}/{quanty}")
+    public ProductDto seller(@PathVariable(value = "id") Long id, @PathVariable(value = "quanty") int quanty){
+        return productService.stock(id, quanty);
     }
 
 }
