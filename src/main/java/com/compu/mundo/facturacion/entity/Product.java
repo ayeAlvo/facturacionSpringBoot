@@ -21,7 +21,6 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-//    @NotEmpty(message = "El ID del producto no puede estar vacio")
     private Long id;
 
     @Column(name = "NAME")
