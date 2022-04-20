@@ -20,6 +20,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
+//    @NotEmpty(message = "El ID del producto no puede estar vacio")
     private Long id;
 
     @Column(name = "NAME")
@@ -29,7 +30,7 @@ public class Product {
     //    @Pattern(regexp = "[0-9]", message = "El stock solo admite numeros enteros")
     @Column(name = "STOCK")
     @NotNull(message = "El stock no puede estar vacio")
-    @Min(value = 1, message="El stock mínimo es 1")
+    @Min(value = 0, message="El stock mínimo es 0")
     private int stock;
 
     @Column(name = "PRICE")

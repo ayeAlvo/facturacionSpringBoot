@@ -25,6 +25,13 @@ public class ProductServiceImpl implements ProductService{
     }
 
     public Product create(Product product){
+        String validateName = product.getName();
+        int validateStock = product.getStock();
+        Double validatePrice = product.getPrice();
+        String validateDetail = product.getDetail();
+
+
+
         return productRepository.save(product);
     }
 
@@ -65,7 +72,7 @@ public class ProductServiceImpl implements ProductService{
             ProductDto productDto = new ProductDto();
             productDto.setName(product.getName());
             productDto.setStock(product.getStock());
-            productDto.setMsg("Se puede realizar la compra de " + product.getName());
+            productDto.setMsg("Se realizo la compra de " + product.getName());
             productRepository.save(product);
             log.info("Se puede realizar la compra, hay stock");
             return productDto;
