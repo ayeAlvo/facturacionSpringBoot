@@ -65,34 +65,12 @@ public class ProductServiceImpl implements ProductService{
             ProductDto productDto = new ProductDto();
             productDto.setName(product.getName());
             productDto.setStock(product.getStock());
-            productDto.setMsg("Se realizo la compra de " + product.getName());
+            productDto.setMsg("Se puede realizar la compra de " + product.getName());
             productRepository.save(product);
             log.info("Se puede realizar la compra, hay stock");
             return productDto;
         }
 
     }
-
-//    public Product stock(Long id, int stock){
-//        Product product = productRepository.findById(id).get();
-//        if(stock <= 0){
-//            product.setStock(0);
-//            productRepository.save(product);
-//            log.info("Se actualizo el estado a SIN STOCK");
-//        }else{
-//            product.setStock(stock);
-//            productRepository.save(product);
-//            log.info("Se actualizo el stock");
-//        }
-//        return product;
-//    }
-
-//    public Product buy(Long id){
-//        Product product = productRepository.findById(id).get();
-//        log.info(String.valueOf(product.getStock()));
-//        int stock = product.getStock() -1;
-//        log.info(String.valueOf(stock));
-//        return product;
-//    }
 
 }

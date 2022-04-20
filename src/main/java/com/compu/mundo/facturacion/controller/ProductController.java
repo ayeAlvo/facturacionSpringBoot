@@ -2,12 +2,19 @@ package com.compu.mundo.facturacion.controller;
 
 import com.compu.mundo.facturacion.dto.ProductDto;
 import com.compu.mundo.facturacion.entity.Product;
+import com.compu.mundo.facturacion.exception.CustomException;
 import com.compu.mundo.facturacion.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
+@Slf4j
 @RestController
 public class ProductController {
 
@@ -25,7 +32,16 @@ public class ProductController {
     }
 
     @PostMapping("/newProduct")
-    public Product createProduct(@RequestBody Product product){
+    public Product createProduct(@RequestBody @Valid Product product, BindingResult result){
+        if(result.hasErrors()){
+            String message = "";
+            for (ObjectError error : result.getAllErrors()){
+                FieldError fieldError = (FieldError) error;
+                String field = fieldError.getField();
+                message += String.format("%s: %s | ", field, error.getDefaultMessage());
+            }
+            throw new CustomException(message);
+        }
         return productService.create(product);
     }
 
