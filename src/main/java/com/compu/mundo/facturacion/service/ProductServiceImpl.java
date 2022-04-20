@@ -25,13 +25,6 @@ public class ProductServiceImpl implements ProductService{
     }
 
     public Product create(Product product){
-        String validateName = product.getName();
-        int validateStock = product.getStock();
-        Double validatePrice = product.getPrice();
-        String validateDetail = product.getDetail();
-
-
-
         return productRepository.save(product);
     }
 

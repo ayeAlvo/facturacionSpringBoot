@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
@@ -25,9 +26,9 @@ public class Product {
 
     @Column(name = "NAME")
     @NotEmpty(message = "El nombre del producto no puede estar vacio")
+    @Length(min=3,max=150, message = "El nombre debe tener mas de 3 caracteres y menos de 150")
     private String name;
 
-    //    @Pattern(regexp = "[0-9]", message = "El stock solo admite numeros enteros")
     @Column(name = "STOCK")
     @NotNull(message = "El stock no puede estar vacio")
     @Min(value = 0, message="El stock mínimo es 0")
@@ -40,6 +41,7 @@ public class Product {
 
     @Column(name = "DETAIL")
     @NotEmpty(message = "El detalle no puede estar vacio")
+    @Length(min=3,max=255, message = "El detalle debe tener mas de 3 caracteres y menos de 255")
     private String detail;
 
     @ManyToOne(optional = false)
