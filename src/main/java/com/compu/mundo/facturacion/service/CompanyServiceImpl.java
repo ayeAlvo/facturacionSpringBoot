@@ -1,6 +1,5 @@
 package com.compu.mundo.facturacion.service;
 
-import com.compu.mundo.facturacion.entity.Client;
 import com.compu.mundo.facturacion.entity.Company;
 import com.compu.mundo.facturacion.repository.CompanyRepository;
 import lombok.extern.slf4j.Slf4j;
