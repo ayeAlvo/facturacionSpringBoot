@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "00a6bf51-0da0-49b2-8b26-8db065a981e8",
+		"name": "Facturacion.Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/getClient/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getClient/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getClient",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/newClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Ferchu\",\r\n    \"lastName\" : \"Villa\",\r\n    \"email\" : \"fer@gmail.com\",\r\n    \"phone\" : 2215546767\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/newClient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"newClient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/editClient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 5,\r\n    \"name\" : \"Patricio\",\r\n    \"lastName\" : \"Garcia\",\r\n    \"email\" : \"patito@gmail.com\",\r\n    \"phone\" :  4830999\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/editClient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"editClient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/deleteClient/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteClient/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteClient",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/allClients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allClients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allClients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/allCompanies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allCompanies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allCompanies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getCompany/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getCompany/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getCompany",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/newCompany",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Mundo Barat\",\r\n    \"item\" : \"cosas barat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/newCompany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"newCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/editCompany",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 2,\r\n    \"name\" : \"Mundo Barat\",\r\n    \"item\" : \"cosas super barat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/editCompany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"editCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/deleteCompany/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteCompany/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteCompany",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/allProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allProducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getProduct/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getProduct/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getProduct",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/newProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Notebook Dell\",\r\n    \"stock\" : 6,\r\n    \"price\" : 115800,\r\n    \"detail\" : \"SSD 512 16 RAM\",\r\n    \"category\" : {\"id\":4}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/newProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"newProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/deleteProduct/10",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteProduct/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteProduct",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/editProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"name\" : \"Notebook Dell\",\r\n    \"stock\" : 3,\r\n    \"price\" : 115800,\r\n    \"detail\" : \"SSD 512 16 RAM\",\r\n    \"category\" : {\"id\":4}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/editProduct",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"editProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/sellProduct/2/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":4,\r\n    \"name\" : \"Notebook Dell\",\r\n    \"stock\" : 3,\r\n    \"price\" : 115800,\r\n    \"detail\" : \"SSD 512 16 RAM\",\r\n    \"category\" : {\"id\":4}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sellProduct/2/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellProduct",
+						"2",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sellProduct/3/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellProduct",
+						"3",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
