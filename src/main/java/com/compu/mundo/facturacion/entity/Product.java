@@ -1,8 +1,6 @@
 package com.compu.mundo.facturacion.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Length;
 
@@ -12,7 +10,8 @@ import javax.validation.constraints.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Setter
+@Getter
 @DynamicUpdate
 @Table(name = "PRODUCTS")
 public class Product {

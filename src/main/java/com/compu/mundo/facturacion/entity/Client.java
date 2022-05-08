@@ -1,8 +1,6 @@
 package com.compu.mundo.facturacion.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -10,7 +8,8 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "CLIENTS")
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Client {
