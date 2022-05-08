@@ -33,6 +33,11 @@ public class Client {
     @Email(message = "El email debe ser un email valido")
     private String email;
 
+    @Column(name = "DNI")
+    @Min(value = 1000000, message = "Debes ingresar un dni valido")
+    @Max(value = 99999999, message = "Debes ingresar un dni valido")
+    private int dni;
+
     @Column(name = "PHONE")
     @NotNull(message = "El numero no puede estar vacio")
     @Min(value = 0, message="El numero mínimo permitido es 0")

@@ -41,7 +41,7 @@ public class Product {
     @Length(min=3,max=255, message = "El detalle debe tener mas de 3 caracteres y menos de 255")
     private String detail;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
     @NotNull(message = "Category Id no puede estar vacio")
     private Category category;

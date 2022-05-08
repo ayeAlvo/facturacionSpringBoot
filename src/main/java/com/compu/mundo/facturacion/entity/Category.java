@@ -1,8 +1,10 @@
 package com.compu.mundo.facturacion.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Setter
@@ -19,5 +21,9 @@ public class Category {
 
     @Column(name = "NAME")
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private List<Product> product;
 
 }
