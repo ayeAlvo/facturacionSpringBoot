@@ -2,6 +2,7 @@ package com.compu.mundo.facturacion.service;
 
 import com.compu.mundo.facturacion.dto.ProductDto;
 import com.compu.mundo.facturacion.entity.Product;
+import com.compu.mundo.facturacion.exception.CustomException;
 import com.compu.mundo.facturacion.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,15 @@ public class ProductServiceImpl implements ProductService{
     ProductRepository productRepository;
 
     public List<Product> getAll(){
-        return productRepository.findAll();
+        try{
+            return productRepository.findAll();
+        }catch (RuntimeException exception){
+            throw new CustomException("Hubo un error en la base de datos, por favor intenta nuevamente en unos minutos");
+        }
     }
 
     public Product findById(Long id){
-        return productRepository.findById(id).orElseThrow(RuntimeException::new);
+        return productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));
     }
 
     public Product create(Product product){
@@ -29,7 +34,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     public Product update(Product product){
-        Product productEdit = productRepository.findById(product.getId()).get();
+        Product productEdit = productRepository.findById(product.getId()).orElseThrow(() -> new CustomException("No existe producto con id " + product.getId()));
         productEdit.setName(product.getName());
         productEdit.setStock(product.getStock());
         productEdit.setPrice(product.getPrice());
@@ -39,13 +44,13 @@ public class ProductServiceImpl implements ProductService{
     }
 
     public void delete(Long id){
-        Product product = productRepository.findById(id).get();
+        Product product = productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));;
         log.info("Se borro el producto {}", product.getName());
         productRepository.deleteById(id);
     }
 
     public ProductDto stock(Long id, int stock){
-        Product product = productRepository.findById(id).get();
+        Product product = productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));;
 
         if(product.getStock() == 0){
             ProductDto productDto = new ProductDto();
