@@ -1,6 +1,7 @@
 package com.compu.mundo.facturacion.service;
 
 import com.compu.mundo.facturacion.entity.Client;
+import com.compu.mundo.facturacion.exception.CustomException;
 import com.compu.mundo.facturacion.repository.ClientRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,16 @@ public class ClientServiceImpl implements ClientService{
     ClientRepository clientRepository;
 
     public List<Client> getAll(){
-        return clientRepository.findAll();
+        try{
+            return clientRepository.findAll();
+        }catch(RuntimeException exception){
+            throw new CustomException("Hubo un error en la base de datos, por favor intenta nuevamente en unos minutos");
+        }
+
     }
 
     public Client findById(Long id){
-        return clientRepository.findById(id).orElseThrow(RuntimeException::new);
+        return clientRepository.findById(id).orElseThrow(() -> new CustomException("No existe cliente con id " + id));
     }
 
     public Client create(Client client){
@@ -28,7 +34,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     public Client update(Client client){
-        Client clientEdit = clientRepository.findById(client.getId()).get();
+        Client clientEdit = clientRepository.findById(client.getId()).orElseThrow(() -> new CustomException("No existe cliente con id " + client.getId()));
         clientEdit.setName(client.getName());
         clientEdit.setLastName(client.getLastName());
         clientEdit.setEmail(client.getEmail());
@@ -37,7 +43,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     public void delete(Long id){
-        Client client = clientRepository.findById(id).get();
+        Client client = clientRepository.findById(id).orElseThrow(() -> new CustomException("No existe cliente con id " + id));
         log.info("Se borro el cliente {}", client.getName());
         clientRepository.deleteById(id);
     }
