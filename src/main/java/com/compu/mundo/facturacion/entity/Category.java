@@ -2,8 +2,10 @@ package com.compu.mundo.facturacion.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
@@ -20,6 +22,8 @@ public class Category {
     private Long id;
 
     @Column(name = "NAME")
+    @NotEmpty(message = "El nombre no puede estar vacio")
+    @Length(min=3,max=150, message = "El nombre debe tener mas de 3 caracteres y menos de 150")
     private String name;
 
     @JsonIgnore

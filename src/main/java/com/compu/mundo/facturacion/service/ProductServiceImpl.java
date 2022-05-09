@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     public void delete(Long id){
-        Product product = productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));;
+        Product product = productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));
         log.info("Se borro el producto {}", product.getName());
         productRepository.deleteById(id);
     }

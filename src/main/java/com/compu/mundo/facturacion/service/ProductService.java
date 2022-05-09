@@ -1,8 +1,6 @@
 package com.compu.mundo.facturacion.service;
-
 import com.compu.mundo.facturacion.dto.ProductDto;
 import com.compu.mundo.facturacion.entity.Product;
-
 import java.util.List;
 
 public interface ProductService {

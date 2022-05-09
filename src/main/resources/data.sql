@@ -3,7 +3,7 @@ CREATE TABLE Company (id bigint NOT NULL auto_increment, name varchar(255), item
 INSERT INTO Company (name, item) VALUES ('Compu Mundo', 'computacion');
 
 --Clients
-CREATE TABLE Clients (id bigint NOT NULL auto_increment, name varchar(150) NOT NULL, last_name VARCHAR(150) NOT NULL, email VARCHAR(255) NOT NULL, dni int NOT NULL, phone bigint, PRIMARY KEY (id));
+CREATE TABLE Clients (id bigint NOT NULL auto_increment, name varchar(150) NOT NULL, last_name VARCHAR(150), email VARCHAR(255), dni int NOT NULL, phone bigint, PRIMARY KEY (id));
 INSERT INTO Clients (name, last_name, email, dni, phone) VALUES ('Sumo', 'Alvo', 'gordo@gmail.com', 23498999, 4271992);
 INSERT INTO Clients (name, last_name, email, dni, phone) VALUES ('Arenita', 'Rodriguez', 'arenita@gmail.com', 34506876, 2215647878);
 INSERT INTO Clients (name, last_name, email, dni, phone) VALUES ('Alejandra', 'Perez', 'ale@gmail.com', 18203400, 2213845645);
