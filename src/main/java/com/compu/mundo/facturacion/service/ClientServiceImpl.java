@@ -17,6 +17,7 @@ public class ClientServiceImpl implements ClientService{
     ClientRepository clientRepository;
 
     public List<Client> getAll(){
+        log.info("|   Obteniendo lista de todos los clientes   |");
         try{
             return clientRepository.findAll();
         }catch(RuntimeException exception){
@@ -26,10 +27,12 @@ public class ClientServiceImpl implements ClientService{
     }
 
     public Client findById(Long id){
+        log.info("|   Buscando Cliente por id {}   |", id);
         return clientRepository.findById(id).orElseThrow(() -> new CustomException("No existe cliente con id " + id));
     }
 
     public Client create(Client client){
+        log.info("|   Creando nuevo cliente '{}'   |", client.getName());
         return clientRepository.save(client);
     }
 
@@ -39,12 +42,13 @@ public class ClientServiceImpl implements ClientService{
         clientEdit.setLastName(client.getLastName());
         clientEdit.setEmail(client.getEmail());
         clientEdit.setPhone(client.getPhone());
+        log.warn("|   Editando cliente '{}' |", client.getName());
         return clientRepository.save(clientEdit);
     }
 
     public void delete(Long id){
         Client client = clientRepository.findById(id).orElseThrow(() -> new CustomException("No existe cliente con id " + id));
-        log.info("Se borro el cliente {}", client.getName());
+        log.warn("|   Se borro el cliente '{}'   |", client.getName());
         clientRepository.deleteById(id);
     }
 

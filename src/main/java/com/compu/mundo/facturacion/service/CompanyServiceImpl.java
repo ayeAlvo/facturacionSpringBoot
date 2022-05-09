@@ -17,6 +17,7 @@ public class CompanyServiceImpl implements CompanyService{
     CompanyRepository companyRepository;
 
     public List<Company> getAll(){
+        log.info("|   Obteniendo lista de todas las empresas   |");
         try{
             return companyRepository.findAll();
         }catch (RuntimeException exception){
@@ -26,10 +27,12 @@ public class CompanyServiceImpl implements CompanyService{
     }
 
     public Company findById(Long id){
+        log.info("|   Buscando empresa por id {}   |", id);
         return companyRepository.findById(id).orElseThrow(() -> new CustomException("No existe empresa con id " + id));
     }
 
     public Company create(Company company){
+        log.info("|   Creando nueva empresa '{}'   |", company.getName());
         return companyRepository.save(company);
     }
 
@@ -37,12 +40,13 @@ public class CompanyServiceImpl implements CompanyService{
         Company companyEdit = companyRepository.findById(company.getId()).orElseThrow(() -> new CustomException("No existe empresa con id " + company.getId()));
         companyEdit.setName(company.getName());
         companyEdit.setItem(company.getItem());
+        log.warn("|   Editando empresa '{}' |", company.getName());
         return companyRepository.save(companyEdit);
     }
 
     public void delete(Long id){
         Company company = companyRepository.findById(id).orElseThrow(() -> new CustomException("No existe empresa con id " + id));
-        log.info("Se borro la empresa {}", company.getName());
+        log.info("|   Se borro la empresa '{}'   |", company.getName());
         companyRepository.deleteById(id);
     }
 

@@ -18,6 +18,7 @@ public class ProductServiceImpl implements ProductService{
     ProductRepository productRepository;
 
     public List<Product> getAll(){
+        log.info("|   Obteniendo lista de todos las productos   |");
         try{
             return productRepository.findAll();
         }catch (RuntimeException exception){
@@ -26,10 +27,12 @@ public class ProductServiceImpl implements ProductService{
     }
 
     public Product findById(Long id){
+        log.info("|   Buscando producto por id {}   |", id);
         return productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));
     }
 
     public Product create(Product product){
+        log.info("|   Creando nuevo producto '{}'   |", product.getName());
         return productRepository.save(product);
     }
 
@@ -40,16 +43,18 @@ public class ProductServiceImpl implements ProductService{
         productEdit.setPrice(product.getPrice());
         productEdit.setDetail(product.getDetail());
         productEdit.setCategory(product.getCategory());
+        log.warn("|   Editando producto '{}' |", product.getName());
         return productRepository.save(productEdit);
     }
 
     public void delete(Long id){
         Product product = productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));
-        log.info("Se borro el producto {}", product.getName());
+        log.info("|   Se borro el producto '{}'   |", product.getName());
         productRepository.deleteById(id);
     }
 
     public ProductDto stock(Long id, int stock){
+        log.info("|   Verificando Stock   |");
         Product product = productRepository.findById(id).orElseThrow(() -> new CustomException("No existe producto con id " + id));;
 
         if(product.getStock() == 0){
@@ -57,7 +62,7 @@ public class ProductServiceImpl implements ProductService{
             productDto.setName(product.getName());
             productDto.setStock(product.getStock());
             productDto.setMsg("No hay stock disponible");
-            log.info("Se actualizo el estado a SIN STOCK");
+            log.info("|   Se actualizo el estado a SIN STOCK   |");
             return productDto;
         }else if(product.getStock() < stock){
             ProductDto productDto = new ProductDto();
@@ -72,7 +77,7 @@ public class ProductServiceImpl implements ProductService{
             productDto.setStock(product.getStock());
             productDto.setMsg("Se realizo la compra de " + product.getName());
             productRepository.save(product);
-            log.info("Se puede realizar la compra, hay stock");
+            log.info("|   Se realizo la compra con exito   |");
             return productDto;
         }
 
