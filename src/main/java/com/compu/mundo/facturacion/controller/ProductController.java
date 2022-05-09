@@ -46,7 +46,16 @@ public class ProductController {
     }
 
     @PutMapping("/editProduct")
-    public Product editProduct(@RequestBody Product product){
+    public Product editProduct(@RequestBody @Valid Product product, BindingResult result){
+        if(result.hasErrors()){
+            String message = "";
+            for (ObjectError error : result.getAllErrors()){
+                FieldError fieldError = (FieldError) error;
+                String field = fieldError.getField();
+                message += String.format("%s: %s | ", field, error.getDefaultMessage());
+            }
+            throw new CustomException(message);
+        }
         return productService.update(product);
     }
 

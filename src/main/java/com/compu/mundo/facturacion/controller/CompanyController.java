@@ -43,7 +43,16 @@ public class CompanyController {
     }
 
     @PutMapping("/editCompany")
-    public Company editCompany(@RequestBody Company company){
+    public Company editCompany(@RequestBody @Valid Company company, BindingResult result){
+        if(result.hasErrors()){
+            String message = "";
+            for (ObjectError error : result.getAllErrors()){
+                FieldError fieldError = (FieldError) error;
+                String field = fieldError.getField();
+                message += String.format("%s: %s | ", field, error.getDefaultMessage());
+            }
+            throw new CustomException(message);
+        }
         return companyService.update(company);
     }
 
