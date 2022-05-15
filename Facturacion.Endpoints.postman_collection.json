@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"Ferchu\",\r\n    \"lastName\" : \"Villa\",\r\n    \"email\" : \"fer@gmail.com\",\r\n    \"phone\" : 2215546767\r\n}",
+					"raw": "{\r\n    \"name\" : \"otro Ferchu\",\r\n    \"lastName\" : \"Villa\",\r\n    \"email\" : \"fer@gmail.com\",\r\n    \"dni\" : 32305266,\r\n    \"phone\" : 2215546767\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,7 +60,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\" : 5,\r\n    \"name\" : \"Patricio\",\r\n    \"lastName\" : \"Garcia\",\r\n    \"email\" : \"patito@gmail.com\",\r\n    \"phone\" :  4830999\r\n}",
+					"raw": "{\r\n    \"id\" : 5,\r\n    \"name\" : \"Patricio\",\r\n    \"lastName\" : \"Garcia\",\r\n    \"email\" : \"patito@gmail.com\",\r\n    \"dni\": 23498999,\r\n    \"phone\" :  4830999\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -381,7 +381,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "/sellProduct/3/4",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -396,6 +396,227 @@
 						"sellProduct",
 						"3",
 						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/allCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allCategories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getCategory/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getCategory/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getCategory",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/editCategory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 2,\r\n    \"name\" : \"muchos componentes\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/editCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"editCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/newCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Softwares\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/newCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"newCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteCategory/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteCategory",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/allDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allDetails",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getDetail/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getDetail/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getDetail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/allInvoices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allInvoices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allInvoices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getInvoice/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getInvoice/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getInvoice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"client\": {\r\n        \"id\": 2,\r\n        \"name\": \"Arenita\",\r\n        \"lastName\": \"Rodriguez\",\r\n        \"email\": \"arenita@gmail.com\",\r\n        \"dni\": 34506876,\r\n        \"phone\": 2215647878\r\n    },\r\n    \"product\": [\r\n                {\r\n                    \"name\": \"Mouse Logitech\",\r\n                    \"stock\": 24,\r\n                    \"price\": 450.0,\r\n                    \"detail\": \"Inalambrico\",\r\n                    \"category\": {\r\n                        \"name\": \"perifericos\"\r\n                    }\r\n                }\r\n            ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/newInvoice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"newInvoice"
 					]
 				}
 			},
