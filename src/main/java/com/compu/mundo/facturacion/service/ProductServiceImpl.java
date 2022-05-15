@@ -3,6 +3,7 @@ package com.compu.mundo.facturacion.service;
 import com.compu.mundo.facturacion.dto.ProductDto;
 import com.compu.mundo.facturacion.entity.Product;
 import com.compu.mundo.facturacion.exception.CustomException;
+import com.compu.mundo.facturacion.repository.DetailRepository;
 import com.compu.mundo.facturacion.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class ProductServiceImpl implements ProductService{
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    DetailRepository detailRepository;
 
     public List<Product> getAll(){
         log.info("|   Obteniendo lista de todos las productos   |");
@@ -78,6 +82,7 @@ public class ProductServiceImpl implements ProductService{
             productDto.setMsg("Se realizo la compra de " + product.getName());
             productRepository.save(product);
             log.info("|   Se realizo la compra con exito   |");
+
             return productDto;
         }
 

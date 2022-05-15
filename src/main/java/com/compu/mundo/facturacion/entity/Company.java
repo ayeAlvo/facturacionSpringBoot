@@ -1,5 +1,6 @@
 package com.compu.mundo.facturacion.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotEmpty;
 public class Company {
 
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     Long id;

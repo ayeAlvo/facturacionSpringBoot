@@ -32,8 +32,9 @@ INSERT INTO Products(name, stock, price, detail, category_id) VALUES ('Water Coo
 INSERT INTO Products(name, stock, price, detail, category_id) VALUES ('Cpu Cooler Hyper 212', 20, 8345, 'Intel/AMD', 2);
 
 --Details
-CREATE TABLE Details(id bigint NOT NULL auto_increment, product_id bigint, quantity int, parcial_price numeric, FOREIGN KEY(product_id) REFERENCES Products(id));
-INSERT INTO Details(product_id, quantity, parcial_price) VALUES (3, 1, 450);
+CREATE TABLE Details(id bigint NOT NULL auto_increment, product_id bigint, quantity int, parcial_price numeric, invoice_id bigint, FOREIGN KEY(product_id) REFERENCES Products(id));
+INSERT INTO Details(product_id, quantity, parcial_price, invoice_id) VALUES (3, 1, 450, 1);
 
 --Invoices
-CREATE TABLE Invoices(id bigint NOT NULL auto_increment, date DATE, client_id bigint, detail_id bigint, company_id bigint, FOREIGN KEY(client_id) REFERENCES Clients(id), FOREIGN KEY(detail_id) REFERENCES Details(id), FOREIGN KEY(company_id) REFERENCES Company(id));
+CREATE TABLE Invoices(id bigint NOT NULL auto_increment, date DATE, client_id bigint, detail_id bigint, company_id bigint, total numeric, FOREIGN KEY(client_id) REFERENCES Clients(id), FOREIGN KEY(detail_id) REFERENCES Details(id), FOREIGN KEY(company_id) REFERENCES Company(id));
+INSERT INTO Invoices(date, client_id, detail_id, company_id, total) VALUES ('2002-02-15', 2, 1, 1, 900);

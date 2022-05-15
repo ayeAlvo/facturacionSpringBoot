@@ -20,6 +20,7 @@ import java.util.List;
 public class Detail {
 
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
@@ -33,5 +34,8 @@ public class Detail {
 
     @JoinColumn(name = "PARCIAL_PRICE")
     private Double parcialPrice;
+
+    @Column(name = "invoice_id")
+    private Long idInvoice;
 
 }

@@ -1,5 +1,6 @@
 package com.compu.mundo.facturacion.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,15 +31,15 @@ public class Invoice {
     @Column(name = "TOTAL")
     public Double total;
 
-    @ManyToOne
-    @JoinTable(name = "CLIENTS", joinColumns = @JoinColumn(name = "ID"))
+    @OneToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "CLIENT_ID", referencedColumnName = "id")
     private Client client;
 
     @OneToMany(cascade = CascadeType.REFRESH)
-    @JoinTable(name = "DETAILS", joinColumns = @JoinColumn(name = "ID"))
+    @JoinColumn(name = "ID", referencedColumnName = "id")
     private List<Detail> detail;
 
-    @ManyToOne
-    @JoinTable(name = "COMPANY", joinColumns = @JoinColumn(name = "ID"))
+    @OneToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "COMPANY_ID", referencedColumnName = "id")
     private Company company;
 }

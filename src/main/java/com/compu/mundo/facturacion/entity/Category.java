@@ -17,6 +17,7 @@ import java.util.List;
 public class Category {
 
     @Id
+    @JsonIgnore
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;

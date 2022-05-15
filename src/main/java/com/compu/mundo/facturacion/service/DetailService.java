@@ -9,4 +9,6 @@ public interface DetailService {
     public List<Detail> getAll();
 
     public Detail findById(Long id);
+
+//    public void parcialPrice(Long idProduct, Long idDetail);
 }
